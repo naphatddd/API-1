@@ -24,6 +24,8 @@ const userRouter = require("./routes/user");
 const staffRouter = require("./routes/staff");
 const shopRouter = require("./routes/shop");
 const menuRouter = require("./routes/menu");
+const productReactRouter = require("./routes/productReact");
+
 
 const app = express();
 
@@ -57,6 +59,7 @@ app.use("/api/user", userRouter);
 app.use("/api/staff", [passportJWT.isLogin], [checkAdmin.isAdmin], staffRouter);
 app.use("/api/shop", shopRouter);
 app.use("/api/menu", menuRouter);
+app.use("/api/product", productReactRouter);
 
 //middleware
 app.use(errorHandler);
